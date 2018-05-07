@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Output</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.14.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.14.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.14.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.14.min.js"></script>
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.14.min.js"></script>
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.14.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> {{scriptNW | safe}}{{scriptBar | safe}}
+</head>
+<style>
+    #output {
+        display: block;
+        width: 1000px;
+        margin: 0 auto;
+    }
+    
+    h4 {
+        text-align: center;
+    }
+    
+    textarea {
+        display: block;
+        border: none;
+        width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .graph-div {
+        display: inline-block;
+        width: 45%;
+    }
+</style>
+
+<body>
+    <div id='output'>
+        <h4>Predicted Time</h4>
+        <p> This post from User {{userId}} is expected to receive it's first answer in {{fa_s}} seconds, which is {{fa_h}} hours, or {{fa_d}} days.
+        </p>
+        <h4>Text Extraction ({{q_body_chars}} characters, {{q_body_words}} words)</h4>
+        {{html}}
+        <h4>Tags</h4>
+        <textarea name='postText'>{{tag}}</textarea>
+        <div>
+            <div class='graph-div' style='margin-right: 45px'>
+                <h4>User Ego Network (degree: {{degree}}, centrality: {{centrality}})</h4>
+                <div>{{divNW|safe}}</div>
+            </div>
+            <div class='graph-div'>
+                <h4>Top 10 words in post: </h4>
+                <div>{{divBar|safe}}</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

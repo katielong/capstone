@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.14.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.14.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.14.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.14.min.js"></script>
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.14.min.js"></script>
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.14.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        form {
+            display: block;
+            width: 900px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        #submit {
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            height: 40px;
+            width: 100px;
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+        
+        #submit:hover {
+            cursor: pointer;
+            opacity: 0.3;
+        }
+        
+        textarea {
+            display: block;
+            height: 600px;
+            width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form method='post' action='output'>
+        <div>
+            <h3>Enter your User ID, Post Time (format: {{now}}) and Post Content below:</h3>
+            <div style='display:inline-block'>
+                <h4>User ID:</h4>
+                <input name='userId' type="text"></input>
+            </div>
+            <div style='display:inline-block'>
+                <h4>Post Time:</h4>
+                <input name='postTime' type="text"></input>
+            </div>
+        </div>
+        <h4>Enter your post below:</h4>
+        <textarea id='inputText' name='postText'></textarea>
+        <input id='submit' type="submit" value="Submit"> {% if error %}
+        <p class=error><strong>Error:</strong> {{ error }} {% endif %}
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
